@@ -21,33 +21,31 @@
     />
   </head>
   <body>
-
-                                        <!-- NAVBAR -->
+    <!-- NAVBAR -->
 
     <header class="nav_container">
-
       <div class="logo_gauche">
         <img src="image/monLogoclair.svg" alt="logo" />
       </div>
 
       <nav>
         <ul class="navbar">
-        <li><a href="index.html">Accueil</a></li>        
-        <li><a href="BTS.html">BTS SIO</a></li>
-        <li><a href="veille.html">Veille</a></li>
-        <li><a href="patrimoine.html">Patrimoine</a></li>
-        <li><a href="synthese.html">Synthèse</a></li>
-        <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">About me</a></li>
+          <li><a href="BTS.html">BTS SIO</a></li>
+          <li><a href="veille.html">Veille</a></li>
+          <li><a href="patrimoine.html">Patrimoine</a></li>
+          <li><a href="synthese.html">Synthèse</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
 
-                                        <!-- MENU BURGER -->
+    <!-- MENU BURGER -->
 
     <button class="burger"></button>
     <nav class="menu_burger" id="mobile-menu">
       <ul>
-        <li><a href="index.html">Accueil</a></li>        
+        <li><a href="index.html">About me</a></li>
         <li><a href="BTS.html">BTS SIO</a></li>
         <li><a href="veille.html">Veille</a></li>
         <li><a href="patrimoine.html">Patrimoine</a></li>
@@ -56,8 +54,7 @@
       </ul>
     </nav>
 
-
-                                                <!-- MOI -->
+    <!-- MOI -->
 
     <section id="MOI" class="fond_feuille">
       <div class="PHOTOetPRESENTATION">
@@ -72,86 +69,164 @@
           </div>
         </div>
       </div>
-        <a href="#presentation" class="nav_page">
-          Presentation
-          <span class="arrow">&#8595;</span> <!-- flèche vers le bas -->
-        </a>
+      <a href="#presentation" class="nav_page">
+        Presentation
+        <span class="arrow">&#8595;</span>
+        <!-- flèche vers le bas -->
+      </a>
     </section>
 
-                                        <!-- MA PRESENTATION -->
+    <!-- MA PRESENTATION -->
 
     <section id="presentation">
-      <div class="titre">PRESENTATION</div>
-      <div class="image">
-        <div class="text">
-          <p>
-            Après l'obtention d'un BTS en management commercial, j’ai souhaité
-            allier mon travail à ma passion.
-          </p>
-          <p>
-            Passionné par l’informatique, j’y consacre une grande partie de mon
-            temps afin d’y approfondir mes connaissances.
-          </p>
-          <p>
-            Dans un monde où l’informatique est devenu un pilier essentiel de
-            notre société, mon ambition est d’acquérir une expertise globale
-            dans ce domaine.
-          </p>
-          <p>
-            Cela inclut des compétences en réseau et cybersécurité, mais
-            également en hardware, programmation et bien d’autres aspects
-            techniques.
-          </p>
+      <div class="frame2"></div>
+
+      <div class="text2">
+        <p>
+          Passionné par l’informatique, j’y consacre une grande partie de mon
+          temps.
+        </p>
+        <p>
+          Dans un monde où l’informatique est devenu un pilier essentiel de
+          notre société, mon ambition est d’acquérir une expertise globale dans
+          ce domaine.
+        </p>
+        <p>
+          Cela inclut des compétences en réseau et cybersécurité, mais également
+          en hardware, programmation et bien d’autres aspects techniques.
+        </p>
+      </div>
+    </section>
+    <!-- SECTION CLASSE ET PARCOURS SCOLAIRE -->
+
+    <section id="parcours">
+      <div class="boutons_container">
+        <div class="boutons_parcours" onclick="changerTexte(0)">
+          Armée de terre
+        </div>
+        <div class="boutons_parcours" onclick="changerTexte(1)">BTS MCO</div>
+        <div class="boutons_parcours" onclick="changerTexte(2)">BTS SIO</div>
+      </div>
+
+      <div id="contenu" class="contenu"></div>
+
+      <div class="cvEtContratContainer">
+        <div class="cvEtContrat">
+          <a href="image/CVpdf.pdf" target="_blank">
+            <button type="button">CV</button>
+          </a>
+        </div>
+        <div class="cvEtContrat">
+          <a href="image/" target="_blank">
+            <button type="button">Contrat</button>
+          </a>
         </div>
       </div>
     </section>
-                                        <!-- SECTION CLASSE ET PARCOURS SCOLAIRE -->
 
-    <section id="parcours">
-      <H1>CLASSE ET PARCOURS SCOLAIRE</H1>
-    </section>
+    <!-- SECTION COMPETENCES -->
 
-                                        <!-- SECTION CV -->
-
-    <section id ="CV">
-      <H1>CV ET CERTIFICAT DE TRAVAIL</H1>
-    </section>
-
-                                        <!-- SECTION COMPETENCES -->
-
-<section id="competences">
+    <section id="competences">
       <div class="titre">
         <p>Mes compétences</p>
       </div>
       <div class="grid">
-        <div class="carreau">competence 1</div>
-        <div class="carreau">competence 2</div>
-        <div class="carreau">competence 3</div>
-        <div class="carreau">competence 4</div>
-        <div class="carreau">competence 5</div>
-        <div class="carreau">competence 6</div>
-        <div class="carreau">competence 7</div>
-        <div class="carreau">competence 8</div>
-        <div class="carreau">competence 9</div>
-        <div class="carreau">competence 10</div>
-        <div class="carreau">competence 11</div>
-        <div class="carreau">competence 12</div>
-        <div class="carreau">competence 13</div>
-        <div class="carreau">competence 14</div>
+        <div class="carreau">
+          <span class="carreau-titre">
+            Recensement et identification des ressources numériques
+          </span>
+          <div class="carreau-texte">
+            J’ai réalisé l’inventaire complet des équipements informatiques et
+            logiciels liés à la vidéo protection de nos communes clientes,
+            permettant une meilleure gestion du parc et une anticipation des
+            besoins de renouvellement.
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre"> Gestion des sauvegardes </span>
+          <div class="carreau-texte">
+            Mise en place de solutions de sauvegarde régulière , assurant la
+            sécurité et la restauration rapide en cas de perte ou de panne.
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre">
+            Mise en oeuvre d'outil et de stratégie de veille informationnelle
+          </span>
+          <div class="carreau-texte">
+            J’utilise quotidiennement des outils de veille pour suivre les
+            évolutions technologiques et les menaces informatiques, me
+            permettant de rester informée et réactif face aux nouveautés du
+            secteur..
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre"
+            >Installation et configuration d'élément d'infrastructure
+          </span>
+          <div class="carreau-texte">
+            Installation et paramétrage de caméra serveurs, routeurs, switchs et
+            autres équipements réseau afin d’assurer la connectivité et la
+            sécurité des systèmes de vidéo protection.
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre">
+            Maquettage et prototypage d’un réseau permettant d’atteindre la
+            qualité de service attendue
+          </span>
+          <div class="carreau-texte">
+            Réalisation de maquettes réseau pour tester différentes
+            architectures et garantir une qualité de service optimale avant le
+            déploiement urbain.
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre">
+            Évaluation, maintien et amélioration de la qualité d’un service
+          </span>
+          <div class="carreau-texte">
+            Analyse régulière des performances des services informatiques et
+            mise en place d’actions correctives pour améliorer la continuité des
+            systèmes.
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre">
+            Identification, qualification, évaluation et réaction face à un
+            incident ou à un problème
+          </span>
+          <div class="carreau-texte">
+            Diagnostic rapide des incidents, qualification des problèmes et
+            application de procédures adaptées pour limiter l’impact sur
+            l’activité et assurer une reprise efficace.
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre">
+            Recensement des conséquences d’une perte de disponibilité,
+            d’intégrité ou de confidentialité
+          </span>
+          <div class="carreau-texte">
+            Évaluation des risques liés à la sécurité des données et proposition
+            de solutions pour limiter les conséquences d’une éventuelle faille
+            ou perte d’information.
+          </div>
+        </div>
+        <div class="carreau">
+          <span class="carreau-titre">
+            Développement d'un site internet (HTML, CSS, JS)
+          </span>
+          <div class="carreau-texte">
+            Création d’un portfolio dynamique et responsive, me permettant de
+            présenter mon parcours et mes activités.
+          </div>
+        </div>
       </div>
       <div class="competences"></div>
     </section>
 
-                                            <!-- SECTION PROJETS (min 50vh)-->
-
-    <section id="projets">
-      <h1>PROJETS</h1>
-    </section>
-
-                                            
-
-    
-                                            <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer id="footer">
       <div class="footer-content">
         <p>&copy; 2025. Tous droits réservés.</p>
