@@ -2,9 +2,8 @@ body {
   margin: 0;
   background-color: #1a1a1a;
   color: white;
-  font-family: "Roboto", serif;
-  font-weight: 300;
-  font-size: 16px;
+  font-family: "century gothic", serif;
+  font-size: 17px;
   font-style: normal;
 }
 html {
@@ -23,7 +22,15 @@ p {
   align-items: center;
   text-align: center;
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 400;
+  font-family: "Jacques Francois Shadow", serif;
+  color: #fffbf3;
+}
+.petitTitre {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Jacques Francois Shadow", serif;
+  color: #fffbf3;
 }
 
 .text {
@@ -187,7 +194,7 @@ p {
   background-color: #27231f;
   background-image: url(image/feuille_accueil.png);
   padding-top: 7%;
-  min-height: 100vh;
+  height: 70vh;
   background-size: cover;
   background-position: center;
   flex-direction: column;
@@ -735,7 +742,6 @@ button.next img:active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
 }
 #synthese h1 {
   margin-top: 200px;
@@ -768,7 +774,6 @@ button.next img:active {
 }
 .boutonSynthese a {
   cursor: pointer;
-  width: 250px;
   border-radius: 10px;
   box-shadow: 0 14px 8px rgba(0, 0, 0, 0.2);
   background-color: #e3d6bd;
@@ -785,7 +790,6 @@ button.next img:active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
 }
 .contact-container {
   background: rgba(0, 0, 0, 0.65);
@@ -859,6 +863,7 @@ button.next img:active {
 /* FOOTER */
 
 #footer {
+  font-size: 12px;
   background-color: #000000;
   color: white;
   padding: 20px 0;
@@ -877,13 +882,20 @@ button.next img:active {
 
 .reseaux {
   margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .reseaux a {
+  display: flex;
+  flex-direction: column-reverse;
   color: white;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 18px;
+  transition: color 0.3s;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 .reseaux a:hover {
@@ -979,6 +991,7 @@ button.next img:active {
     flex-direction: column;
     gap: 20px;
     margin: 20px;
+    margin-top: 100px;
   }
   .photo_profil img {
     width: 150px;
@@ -1060,9 +1073,65 @@ button.next img:active {
   }
   #synthese h1 {
     font-size: 20px;
+    text-align: center;
+  }
+  .shemaSynthese {
+    width: 90%;
   }
   .boutonSyntheseContainer {
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
+  }
+  #synthese h1 {
+    margin-top: 80px;
+  }
+  .boutonSynthese {
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+  .boutonSynthese a {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  #contact {
+    margin-top: 100px;
+  }
+  .contact-container {
+    width: 250px;
+    margin: 0;
+  }
+  .contact-container h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .contact-form {
+    gap: 10px;
+  }
+  .contact-form label {
+    font-size: 14px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 13px;
+    padding: 8px 10px;
+    width: 100%;
+  }
+  .contact-form button[type="submit"] {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  /* FOOTER format téléphone */
+  #footer {
+    font-size: 12px;
+    padding: 15px 0;
+  }
+  .reseaux a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+  #footer img {
+    width: 20px;
   }
 }

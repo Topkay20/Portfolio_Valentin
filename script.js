@@ -42,7 +42,7 @@ function nextSlide() {
 // SECTION PARCOURS, fonction pour changer le texte au clic sur les boutons
 // Textes associés à chaque bouton
 const textes = [
-  "<b>Besançon (Franche-Comté) au 13e Régiment du Génie.</b><br>Dans le Génie, j'ai operé pendant 3 ans en tant que sapeur de combat, spécialisé en pyrotechnie et en combat.<br> J'ai participé à diverses missions, notamment en Guyane, où j'ai acquis des compétences en environnement tropical et en survie.<br> Mon expérience militaire m'a permis de développer des qualités telles que la discipline, le travail en équipe et la gestion du stress.",
+  "<span class='petitTitre' >Besançon (Franche-Comté) au 13e Régiment du Génie.</span><br>Dans le Génie, j'ai operé pendant 3 ans en tant que sapeur de combat, spécialisé en pyrotechnie et en combat.<br> J'ai participé à diverses missions, notamment en Guyane, où j'ai acquis des compétences en environnement tropical et en survie.<br> Mon expérience militaire m'a permis de développer des qualités telles que la discipline, le travail en équipe et la gestion du stress.",
 
   "<b>Rouen (Normandie) à l'école Providence Sainte Thérèse</b><br>Dans le Marketing, j'ai réalisé 2 ans en alternance dans la grande distribution.<br> J'ai appris à gérer une équipe, à organiser des opérations commerciales et à analyser les performances des ventes.<br> Cette expérience m'a permis de renforcer mes compétences en communication, en leadership et en gestion de projet.",
 
