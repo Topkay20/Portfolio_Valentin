@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #27231f;
+  background-color: #1a1a1a;
   color: white;
   font-family: "Roboto", serif;
   font-weight: 300;
@@ -41,9 +41,9 @@ p {
 }
 
 /* MENU BURGER */
+
 .burger {
   position: fixed;
-  display: none;
   width: 50px;
   height: 50px;
   top: 10px;
@@ -60,12 +60,8 @@ p {
   background-image: url(image/burger-bar_black.png);
 }
 .menu_burger {
-  /*
   visibility: hidden;
   opacity: 0;
-  */
-  display: none;
-  /*  */
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   position: fixed;
@@ -78,6 +74,15 @@ p {
   padding: 15px 0;
   pointer-events: none; /* Empêche les clics lorsque caché */
   z-index: 20;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(
+    10px
+  ); /* Flou d'arrière-plan pour un effet glassmorphism */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto", serif;
+  color: white;
 }
 .menu_burger.show {
   visibility: visible;
@@ -158,36 +163,28 @@ p {
   align-items: center;
   border-radius: 50px;
 }
-
-/* NAV DE LA PAGE */
-
-.nav_page {
-  color: white;
-  text-decoration: none;
-}
-.nav_page .arrow {
-  display: block;
-  font-size: 20px;
-  text-align: center;
-  animation: bounce 1s infinite;
-  margin-top: 5px;
-}
-
-/* Animation de rebond */
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
+/* Affiche du burger, ou pas. Selon la taille de l'ecran */
+@media (max-width: 1023px) {
+  .nav_container {
+    display: none;
   }
-  50% {
-    transform: translateY(5px);
+  .burger {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+  .menu_burger {
+    display: none;
   }
 }
 
 /* SECTION MOI dans index.html */
 #MOI {
   display: flex;
-  background-color: #1c1816;
+  background-color: #27231f;
   background-image: url(image/feuille_accueil.png);
   padding-top: 7%;
   min-height: 100vh;
@@ -204,15 +201,15 @@ p {
   gap: 100px;
   align-items: center;
   justify-content: center;
-  margin: 100px;
-  width: 100%;
+  margin-top: 100px;
+  width: 80%;
   height: 60%;
 }
 .MOItitre {
   font-family: "Jacques Francois Shadow", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 20px;
 }
 .MOIetBTS {
@@ -228,8 +225,8 @@ p {
 }
 
 .photo_profil img {
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 14px 8px rgba(0, 0, 0, 0.6);
@@ -242,37 +239,22 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
-.frame2 {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  aspect-ratio: 16/9;
-  background-image: url(image/histoire2.jpg);
-  background-size: cover;
-  background-position: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  margin: 10px;
-  margin-bottom: 40px;
-}
 .text2 {
   gap: 30px;
   margin-right: 5%;
   margin-left: 5%;
-  padding: 10px;
-  width: 40%;
+  padding: 40px;
   height: 100%;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 14px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 14px 8px 5px rgba(0, 0, 0, 0.2);
 }
 
 #a_propos .text {
@@ -286,13 +268,14 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .boutons_container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   width: 80%;
 }
 
@@ -307,7 +290,6 @@ p {
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
-
   font-weight: bold;
   color: rgb(255, 255, 255);
 }
@@ -330,10 +312,12 @@ p {
   box-shadow: 0 14px 8px rgba(0, 0, 0, 0.2);
   color: rgb(255, 255, 255);
   border-radius: 5px;
-  width: 80vw;
-  height: 50vh;
+  width: 80%;
+  height: 50%;
   gap: 10px;
   line-height: 2;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .cvEtContratContainer {
@@ -655,6 +639,9 @@ button.next img:active {
   margin-bottom: 30px;
   gap: 50px;
 }
+.titreVeille {
+  text-align: center;
+}
 .titreVeille img {
   width: 60px;
   height: 60px;
@@ -904,4 +891,178 @@ button.next img:active {
 }
 #footer img {
   width: 30px;
+}
+
+/* Responsive tablette */
+@media (min-width: 601px) and (max-width: 1023px) {
+  #MOI {
+    padding-top: 0;
+  }
+  .PHOTOetPRESENTATION {
+    flex-direction: column;
+    gap: 50px;
+    margin: 50px;
+  }
+  .photo_profil img {
+    width: 250px;
+    height: 250px;
+  }
+  .MOItitre {
+    font-size: 40px;
+  }
+  #presentation {
+    flex-direction: column;
+  }
+  .frame2 {
+    display: none;
+  }
+  .text2 {
+    width: 80%;
+    height: auto;
+    margin: 20px 0;
+  }
+  #competences .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+    height: auto;
+  }
+  .carreau:nth-child(9) {
+    grid-column: span 2;
+  }
+
+  .BTSSIO {
+    font-size: 18px;
+  }
+  .carouselBTS-item p {
+    font-size: 15px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    transform: translateY(50%);
+  }
+  .carouselBTS-item li {
+    font-size: 13px;
+    margin-bottom: 5%;
+  }
+  button.prev img,
+  button.next img {
+    width: 30px; /* Ajuste la taille de l'image de la flèche */
+    height: 30px;
+  }
+
+  .projetBTSContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .projetBTS {
+    width: 60%;
+    height: auto;
+    gap: 15px;
+  }
+
+  .exemplesContainer {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+  #MOI {
+    padding-top: 0;
+  }
+  .PHOTOetPRESENTATION {
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px;
+  }
+  .photo_profil img {
+    width: 150px;
+    height: 150px;
+  }
+  .MOItitre {
+    font-size: 18px;
+  }
+  #presentation {
+    flex-direction: column;
+  }
+  .frame2 {
+    display: none;
+  }
+  .text2 {
+    width: 80%;
+    height: auto;
+    margin: 20px 0;
+  }
+  #competences .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, auto);
+    height: auto;
+  }
+
+  .BTSSIO {
+    font-size: 15px;
+  }
+  .carouselBTS-item p {
+    font-size: 13px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    transform: translateY(50%);
+  }
+  .carouselBTS-item li {
+    font-size: 10px;
+    margin-bottom: 5%;
+  }
+  button.prev img,
+  button.next img {
+    width: 15px; /* Ajuste la taille de l'image de la flèche */
+    height: 15px;
+  }
+
+  .projetBTSContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .projetBTS {
+    width: 60%;
+    height: auto;
+    gap: 15px;
+  }
+  .exemplesContainer {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .titreVeille {
+    font-size: 15px;
+    gap: 20px;
+  }
+  .titreVeille img {
+    width: 40px;
+    height: 40px;
+  }
+  .veilleTexte {
+    width: 80%;
+    font-size: 11px;
+    padding: 15px;
+  }
+  .veilleTexte li {
+    font-size: 12px;
+  }
+  .exempleVeille {
+    width: 80%;
+    padding: 15px;
+  }
+  #synthese h1 {
+    font-size: 20px;
+  }
+  .boutonSyntheseContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

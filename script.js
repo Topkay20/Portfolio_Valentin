@@ -1,3 +1,13 @@
+// MENU BURGER fonction pour afficher/masquer le menu au clic sur le burger
+document.addEventListener("DOMContentLoaded", function () {
+  const burger = document.querySelector(".burger");
+  const menu = document.getElementById("mobile-menu");
+
+  burger.addEventListener("click", function () {
+    menu.classList.toggle("show");
+  });
+});
+
 // NAVBAR, fonction pour réduire la navbar au scroll
 const nav = document.querySelector(".nav_container");
 
