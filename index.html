@@ -74,7 +74,9 @@
     <!-- MA PRESENTATION -->
 
     <section id="presentation">
-      <div class="frame2"></div>
+      <div class="image">
+        <img src="image/poste_info.jpg" alt="poste informatique" />
+      </div>
 
       <div class="text2">
         <p class="titre">Pourquoi avoir choisi l'informatique ?</p>
@@ -97,15 +99,35 @@
 
     <section id="parcours">
       <div class="boutons_container">
-        <div class="boutons_parcours" onclick="changerTexte(0)">
+        <div class="boutons_parcours" onclick="changerContenu('contenu1')">
           Armée de terre
         </div>
-        <div class="boutons_parcours" onclick="changerTexte(1)">BTS MCO</div>
-        <div class="boutons_parcours" onclick="changerTexte(2)">BTS SIO</div>
+        <div class="boutons_parcours" onclick="changerContenu('contenu2')">
+          Marketing
+        </div>
+        <div class="boutons_parcours" onclick="changerContenu('contenu3')">
+          Informatique
+        </div>
       </div>
-
-      <div id="contenu" class="contenu"></div>
-
+      <div class="contenu">
+        <div class="texte">
+          <div id="parcoursTitre" class="petitTitre">
+            Besançon (Franche-Comté) au 13e Régiment du Génie.
+          </div>
+          <p id="parcoursTexte">
+            Dans le Génie, j'ai operé pendant 3 ans en tant que sapeur de
+            combat, spécialisé en pyrotechnie et en combat.<br />
+            J'ai participé à diverses missions, notamment en Guyane, où j'ai
+            acquis des compétences en environnement tropical et en survie.<br />
+            Mon expérience militaire m'a permis de développer des qualités
+            telles que la discipline, le travail en équipe et la gestion du
+            stress.
+          </p>
+        </div>
+        <div class="image">
+          <img id="parcoursImage" src="image/guyane.jpg" alt="image Guyane" />
+        </div>
+      </div>
       <div class="cvEtContratContainer">
         <div class="cvEtContrat">
           <a href="image/CVpdf.pdf" target="_blank">

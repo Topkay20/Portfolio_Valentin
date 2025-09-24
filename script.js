@@ -40,38 +40,53 @@ function nextSlide() {
 }
 
 // SECTION PARCOURS, fonction pour changer le texte au clic sur les boutons
-// Textes associés à chaque bouton
-const textes = [
-  "<span class='petitTitre' >Besançon (Franche-Comté) au 13e Régiment du Génie.</span><br>Dans le Génie, j'ai operé pendant 3 ans en tant que sapeur de combat, spécialisé en pyrotechnie et en combat.<br> J'ai participé à diverses missions, notamment en Guyane, où j'ai acquis des compétences en environnement tropical et en survie.<br> Mon expérience militaire m'a permis de développer des qualités telles que la discipline, le travail en équipe et la gestion du stress.",
 
-  "<b>Rouen (Normandie) à l'école Providence Sainte Thérèse</b><br>Dans le Marketing, j'ai réalisé 2 ans en alternance dans la grande distribution.<br> J'ai appris à gérer une équipe, à organiser des opérations commerciales et à analyser les performances des ventes.<br> Cette expérience m'a permis de renforcer mes compétences en communication, en leadership et en gestion de projet.",
+function changerContenu(id) {
+  // Contenus préparés
+  const contenus = {
+    contenu1: {
+      parcoursTitre: "Besançon (Franche-Comté) au 13e Régiment du Génie.",
+      parcoursTexte:
+        "Dans le Génie, j'ai operé pendant 3 ans en tant que sapeur de combat, spécialisé en pyrotechnie et en combat.<br> J'ai participé à diverses missions, notamment en Guyane, où j'ai acquis des compétences en environnement tropical et en survie.<br> Mon expérience militaire m'a permis de développer des qualités telles que la discipline, le travail en équipe et la gestion du stress.",
+      parcoursImage: "image/guyane.jpg",
+    },
+    contenu2: {
+      parcoursTitre: "Rouen (Normandie) à l'école Providence Sainte Thérèse",
+      parcoursTexte:
+        "Dans le Marketing, j'ai réalisé 2 ans en alternance dans la grande distribution.<br> J'ai appris à gérer une équipe, à organiser des opérations commerciales et à analyser les performances des ventes.<br> Cette expérience m'a permis de renforcer mes compétences en communication, en leadership et en gestion de projet.",
+      parcoursImage: "image/vente.jpg",
+    },
+    contenu3: {
+      parcoursTitre: "Chambery (Savoie) à l'école CIFEP",
+      parcoursTexte:
+        "Dans l'informatique, j'ai été en alternance pendant 2 ans dans le domaine de la vidéo protection chez Ineo Infracom, appartenant au groupe Bouygues.<br> J'étais responsable de l'installation, de la configuration et de la maintenance des systèmes de vidéosurveillance pour divers institutions publiques <br>(notamment Annecy, La Motte Servolex etc ...).<br> Cette expérience m'a permis de développer des compétences techniques en réseaux, en sécurité informatique et en gestion de projets IT.",
+      parcoursImage: "image/poste_info.jpg",
+    },
+  };
 
-  "<b>Chambery (Savoie) à l'école CIFEP</b><br>Dans l'informatique, j'ai été en alternance pendant 2 ans dans le domaine de la vidéo protection chez Ineo Infracom, appartenant au groupe Bouygues.<br> J'étais responsable de l'installation, de la configuration et de la maintenance des systèmes de vidéosurveillance pour divers institutions publiques <br>(notamment Annecy, La Motte Servolex etc ...).<br> Cette expérience m'a permis de développer des compétences techniques en réseaux, en sécurité informatique et en gestion de projets IT.",
-];
-
-// Ajoute l'écouteur sur chaque bouton
-document.querySelectorAll(".boutons_parcours").forEach((btn, i) => {
-  btn.addEventListener("click", () => changerTexte(i, btn));
-});
-
-// Fonction pour changer le texte et l'état actif
-function changerTexte(index, boutonClique) {
-  document.getElementById("contenu").innerHTML = textes[index];
-
-  // Retirer la classe 'actif' de tous les boutons
-  const boutons = document.querySelectorAll(".boutons_parcours");
-  boutons.forEach((b) => b.classList.remove("actif"));
-
-  // Ajouter la classe 'actif' au bouton cliqué
-  boutonClique.classList.add("actif");
+  // Mise à jour du contenu
+  document.getElementById("parcoursTitre").innerHTML =
+    contenus[id].parcoursTitre;
+  document.getElementById("parcoursTexte").innerHTML =
+    contenus[id].parcoursTexte;
+  document.getElementById("parcoursImage").src = contenus[id].parcoursImage;
 }
 
-// Affiche par défaut le texte du premier bouton et l'active
-window.onload = () => {
-  const premierBouton = document.querySelectorAll(".boutons_parcours")[0];
-  premierBouton.classList.add("actif");
-  changerTexte(0, premierBouton);
-};
+document.querySelectorAll(".boutons_parcours").forEach((bouton) => {
+  bouton.addEventListener("click", function () {
+    if (this.classList.contains("active")) {
+      // Si déjà active, on désactive (revient au titre)
+      this.classList.remove("active");
+    } else {
+      // Sinon, on désactive les autres et active celle-ci
+      document
+        .querySelectorAll(".boutons_parcours")
+        // On démarre une boucle pour chaque élément avec la classe "carreau" et on nomme "c" chaque élément de la boucle
+        .forEach((b) => b.classList.remove("active"));
+      this.classList.add("active");
+    }
+  });
+});
 
 // SECTION COMPETENCES, fonction pour afficher le texte au clic sur les carreaux
 //Recup les element qui ont la classe carreau
