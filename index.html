@@ -1,36 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portoflio Valentin</title>
+    <title>Portfolio — Valentin Florent</title>
     <link rel="icon" href="image/monLogoclair.svg" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Young+Serif&family=Jacques+Francois+Shadow&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <!-- NAVBAR -->
-
     <header class="nav_container">
       <div class="logo_gauche">
         <img src="image/monLogoclair.svg" alt="logo" />
       </div>
-
       <nav>
         <ul class="navbar">
-          <li><a href="index.html">À propos de moi</a></li>
+          <li><a href="index.html">À propos</a></li>
           <li><a href="BTS.html">BTS SIO</a></li>
           <li><a href="veille.html">Veille</a></li>
           <li><a href="patrimoine.html">Patrimoine</a></li>
@@ -41,8 +33,7 @@
     </header>
 
     <!-- MENU BURGER -->
-
-    <button class="burger"></button>
+    <button class="burger" aria-label="Menu"></button>
     <nav class="menu_burger" id="mobile-menu">
       <ul>
         <li><a href="index.html">À propos de moi</a></li>
@@ -54,145 +45,138 @@
       </ul>
     </nav>
 
-    <!-- MOI -->
-
+    <!-- HERO -->
     <section id="MOI" class="fond_feuille">
       <div class="PHOTOetPRESENTATION">
         <div class="photo_profil">
-          <img src="image/profil 2.jpg" alt="photo de profil" />
+          <img
+            src="image/profil 2.jpg"
+            alt="Photo de profil de Valentin Florent"
+          />
         </div>
-        <div class="MOIetBTS">
-          <div class="MOI">
-            <p class="MOItitre">Valentin Florent</p>
-            <p>Étudiant en BTS SIO</p>
-            <p><b>S</b>ervice <b>I</b>nformatique aux <b>O</b>rganisations</p>
-          </div>
+        <div class="HERO">
+          <h1 class="MOItitre">Valentin Florent</h1>
+          <p>Étudiant en BTS SIO</p>
+          <p><b>S</b>ervice <b>I</b>nformatique aux <b>O</b>rganisations</p>
+          <div class="hero-badge">Option SISR — Alternance</div>
         </div>
       </div>
     </section>
 
-    <!-- MA PRESENTATION -->
-
+    <!-- PRESENTATION -->
     <section id="presentation">
       <div class="image">
-        <img src="image/poste_info.jpg" alt="poste informatique" />
+        <img src="image/poste_info.jpg" alt="Poste informatique" />
       </div>
-
       <div class="text2">
-        <p class="titre">Pourquoi avoir choisi l'informatique ?</p>
         <p>
-          Passionné par l’informatique, j’y consacre une grande partie de mon
-          temps.
+          Passionné par l'informatique depuis toujours, j'y consacre une grande
+          partie de mon temps libre comme professionnel.
         </p>
         <p>
-          Dans un monde où l’informatique est devenu un pilier essentiel de
-          notre société, mon ambition est d’acquérir une expertise globale dans
-          ce domaine.
+          Dans un monde où l'informatique est devenu un pilier essentiel de
+          notre société, mon ambition est d'acquérir une expertise globale :
+          réseaux, cybersécurité, hardware et programmation.
         </p>
         <p>
-          Cela inclut des compétences en réseau et cybersécurité, mais également
-          en hardware, programmation et bien d’autres aspects techniques.
+          Mon parcours atypique — de l'armée à l'informatique en passant par le
+          marketing — m'a forgé une capacité d'adaptation et une rigueur que
+          j'applique au quotidien.
         </p>
       </div>
     </section>
-    <!-- SECTION CLASSE ET PARCOURS SCOLAIRE -->
 
+    <!-- PARCOURS -->
     <section id="parcours">
-      <div class="boutons_container">
-        <div class="boutons_parcours" onclick="changerContenu('contenu1')">
-          Armée de terre
-        </div>
-        <div class="boutons_parcours" onclick="changerContenu('contenu2')">
-          Marketing
-        </div>
-        <div class="boutons_parcours" onclick="changerContenu('contenu3')">
-          Informatique
-        </div>
-      </div>
-      <div class="contenu">
-        <div class="texte">
-          <div id="parcoursTitre" class="petitTitre">
-            Besançon (Franche-Comté) au 13e Régiment du Génie.
+      <div class="etudes">
+        <p class="titre">Mon parcours</p>
+        <div class="boutons_container">
+          <div class="boutons_parcours" onclick="changerContenu('contenu1')">
+            Armée de terre
           </div>
-          <p id="parcoursTexte">
-            Dans le Génie, j'ai operé pendant 3 ans en tant que sapeur de
-            combat, spécialisé en pyrotechnie et en combat.<br />
-            J'ai participé à diverses missions, notamment en Guyane, où j'ai
-            acquis des compétences en environnement tropical et en survie.<br />
-            Mon expérience militaire m'a permis de développer des qualités
-            telles que la discipline, le travail en équipe et la gestion du
-            stress.
-          </p>
+          <div class="boutons_parcours" onclick="changerContenu('contenu2')">
+            Marketing
+          </div>
+          <div class="boutons_parcours" onclick="changerContenu('contenu3')">
+            Informatique
+          </div>
         </div>
-        <div class="image">
-          <img id="parcoursImage" src="image/guyane.jpg" alt="image Guyane" />
+        <div class="contenu">
+          <div class="texte">
+            <div id="parcoursTitre" class="petitTitre">
+              Besançon (Franche-Comté) — 13e Régiment du Génie
+            </div>
+            <p id="parcoursTexte">
+              Dans le Génie, j'ai opéré pendant 3 ans en tant que sapeur de
+              combat, spécialisé en pyrotechnie et en combat. J'ai participé à
+              diverses missions, notamment en Guyane, où j'ai acquis des
+              compétences en environnement tropical et en survie. Mon expérience
+              militaire m'a permis de développer des qualités telles que la
+              discipline, le travail en équipe et la gestion du stress.
+            </p>
+          </div>
+          <img id="parcoursImage" src="image/guyane.jpg" alt="Guyane" />
         </div>
       </div>
       <div class="cvEtContratContainer">
         <div class="cvEtContrat">
-          <a href="image/CVpdf.pdf" target="_blank">
-            <button type="button">CV</button>
-          </a>
+          <a href="image/CVpdf.pdf" target="_blank"
+            ><button type="button">CV</button></a
+          >
         </div>
         <div class="cvEtContrat">
-          <a href="image/" target="_blank">
-            <button type="button">Contrat</button>
-          </a>
+          <a href="image/" target="_blank"
+            ><button type="button">Contrat</button></a
+          >
         </div>
       </div>
     </section>
 
-    <!-- SECTION COMPETENCES -->
-
+    <!-- COMPETENCES -->
     <section id="competences">
-      <div class="titre">
-        <p>Mes compétences</p>
-      </div>
+      <p class="titre">Mes compétences</p>
       <div class="grid">
         <div class="carreau">
-          <span class="carreau-titre">
-            Recensement et identification des ressources numériques
-          </span>
+          <span class="carreau-titre"
+            >Recensement et identification des ressources numériques</span
+          >
           <div class="carreau-texte">
-            J’ai réalisé l’inventaire complet des équipements informatiques et
+            J'ai réalisé l'inventaire complet des équipements informatiques et
             logiciels liés à la vidéo protection de nos communes clientes,
             permettant une meilleure gestion du parc et une anticipation des
             besoins de renouvellement.
           </div>
         </div>
         <div class="carreau">
-          <span class="carreau-titre"> Gestion des sauvegardes </span>
+          <span class="carreau-titre">Gestion des sauvegardes</span>
           <div class="carreau-texte">
-            Mise en place de solutions de sauvegarde régulière , assurant la
+            Mise en place de solutions de sauvegarde régulière, assurant la
             sécurité et la restauration rapide en cas de perte ou de panne.
           </div>
         </div>
         <div class="carreau">
-          <span class="carreau-titre">
-            Mise en oeuvre d'outil et de stratégie de veille informationnelle
-          </span>
+          <span class="carreau-titre"
+            >Mise en œuvre d'outils de veille informationnelle</span
+          >
           <div class="carreau-texte">
-            J’utilise quotidiennement des outils de veille pour suivre les
+            J'utilise quotidiennement des outils de veille pour suivre les
             évolutions technologiques et les menaces informatiques, me
-            permettant de rester informée et réactif face aux nouveautés du
-            secteur..
+            permettant de rester informé et réactif face aux nouveautés du
+            secteur.
           </div>
         </div>
         <div class="carreau">
           <span class="carreau-titre"
-            >Installation et configuration d'élément d'infrastructure
-          </span>
+            >Installation et configuration d'infrastructure</span
+          >
           <div class="carreau-texte">
-            Installation et paramétrage de caméra serveurs, routeurs, switchs et
-            autres équipements réseau afin d’assurer la connectivité et la
+            Installation et paramétrage de caméras, serveurs, routeurs, switchs
+            et autres équipements réseau afin d'assurer la connectivité et la
             sécurité des systèmes de vidéo protection.
           </div>
         </div>
         <div class="carreau">
-          <span class="carreau-titre">
-            Maquettage et prototypage d’un réseau permettant d’atteindre la
-            qualité de service attendue
-          </span>
+          <span class="carreau-titre">Maquettage et prototypage réseau</span>
           <div class="carreau-texte">
             Réalisation de maquettes réseau pour tester différentes
             architectures et garantir une qualité de service optimale avant le
@@ -200,63 +184,57 @@
           </div>
         </div>
         <div class="carreau">
-          <span class="carreau-titre">
-            Évaluation, maintien et amélioration de la qualité d’un service
-          </span>
+          <span class="carreau-titre"
+            >Évaluation et amélioration de la qualité de service</span
+          >
           <div class="carreau-texte">
             Analyse régulière des performances des services informatiques et
-            mise en place d’actions correctives pour améliorer la continuité des
+            mise en place d'actions correctives pour améliorer la continuité des
             systèmes.
           </div>
         </div>
         <div class="carreau">
-          <span class="carreau-titre">
-            Identification, qualification, évaluation et réaction face à un
-            incident ou à un problème
-          </span>
+          <span class="carreau-titre">Gestion des incidents et problèmes</span>
           <div class="carreau-texte">
             Diagnostic rapide des incidents, qualification des problèmes et
-            application de procédures adaptées pour limiter l’impact sur
-            l’activité et assurer une reprise efficace.
+            application de procédures adaptées pour limiter l'impact sur
+            l'activité et assurer une reprise efficace.
           </div>
         </div>
         <div class="carreau">
-          <span class="carreau-titre">
-            Recensement des conséquences d’une perte de disponibilité,
-            d’intégrité ou de confidentialité
-          </span>
+          <span class="carreau-titre"
+            >Sécurité et confidentialité des données</span
+          >
           <div class="carreau-texte">
             Évaluation des risques liés à la sécurité des données et proposition
-            de solutions pour limiter les conséquences d’une éventuelle faille
-            ou perte d’information.
+            de solutions pour limiter les conséquences d'une éventuelle faille
+            ou perte d'information.
           </div>
         </div>
         <div class="carreau">
-          <span class="carreau-titre">
-            Développement d'un site internet (HTML, CSS, JS)
-          </span>
+          <span class="carreau-titre">Développement web (HTML, CSS, JS)</span>
           <div class="carreau-texte">
-            Création d’un portfolio dynamique et responsive, me permettant de
-            présenter mon parcours et mes activités.
+            Création d'un portfolio dynamique et responsive, me permettant de
+            présenter mon parcours et mes activités professionnelles.
           </div>
         </div>
       </div>
-      <div class="competences"></div>
     </section>
 
     <!-- FOOTER -->
     <footer id="footer">
       <div class="footer-content">
-        <p>&copy; 2025. Tous droits réservés.</p>
+        <p>&copy; 2025 Valentin Florent. Tous droits réservés.</p>
         <div class="reseaux">
-          <a href="https://github.com/Topkay20" target="_blank"
-            >Github <img src="image/githubblanc.png" alt="Github"
-          /></a>
+          <a href="https://github.com/Topkay20" target="_blank">
+            Github <img src="image/githubblanc.png" alt="Github" />
+          </a>
           <a
             href="https://www.linkedin.com/in/valentin-florent-88a169282/"
             target="_blank"
-            >Linkedin <img src="image/linkedinblanc.png" alt="Linkedin"
-          /></a>
+          >
+            Linkedin <img src="image/linkedinblanc.png" alt="Linkedin" />
+          </a>
         </div>
       </div>
     </footer>

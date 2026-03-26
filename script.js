@@ -105,3 +105,62 @@ document.querySelectorAll(".carreau").forEach((carreau) => {
     }
   });
 });
+
+// On récupère tes éléments
+const containerSynthese = document.querySelector(".shemaSynthese");
+const imgSynthese = containerSynthese.querySelector("img");
+
+let scale = 1;
+let posX = 0;
+let posY = 0;
+let isDragging = false;
+let startX, startY;
+
+// --- ZOOM (Molette) ---
+containerSynthese.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  const zoomSpeed = 0.001;
+  scale += e.deltaY * -zoomSpeed;
+
+  // Bornes : min 1 (taille normale), max 4 (très gros)
+  scale = Math.min(Math.max(1, scale), 4);
+
+  // Si on revient à scale 1, on remet l'image au centre
+  if (scale === 1) {
+    posX = 0;
+    posY = 0;
+  }
+
+  updateStyle();
+});
+
+// --- DÉPLACEMENT (Clic & Glisse) ---
+containerSynthese.addEventListener("mousedown", (e) => {
+  if (scale === 1) return; // Pas besoin de bouger si on n'est pas zoomé
+  isDragging = true;
+  startX = e.clientX - posX;
+  startY = e.clientY - posY;
+});
+
+window.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  posX = e.clientX - startX;
+  posY = e.clientY - startY;
+  updateStyle();
+});
+
+window.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+function updateStyle() {
+  imgSynthese.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+}
+containerSynthese.addEventListener("mousedown", (e) => {
+  e.preventDefault(); // <-- CETTE LIGNE est magique : elle annule le comportement de sélection
+
+  if (scale === 1) return;
+  isDragging = true;
+  startX = e.clientX - posX;
+  startY = e.clientY - posY;
+});

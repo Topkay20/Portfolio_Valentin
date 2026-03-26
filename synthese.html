@@ -1,22 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tableau de synthèse</title>
+    <title>Tableau de synthèse — Valentin Florent</title>
     <link rel="icon" href="image/monLogoclair.svg" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Young+Serif&family=Jacques+Francois+Shadow&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -26,10 +20,9 @@
       <div class="logo_gauche">
         <img src="image/monLogoclair.svg" alt="logo" />
       </div>
-
       <nav>
         <ul class="navbar">
-          <li><a href="index.html">À propos de moi</a></li>
+          <li><a href="index.html">À propos</a></li>
           <li><a href="BTS.html">BTS SIO</a></li>
           <li><a href="veille.html">Veille</a></li>
           <li><a href="patrimoine.html">Patrimoine</a></li>
@@ -40,7 +33,7 @@
     </header>
 
     <!-- MENU BURGER -->
-    <button class="burger"></button>
+    <button class="burger" aria-label="Menu"></button>
     <nav class="menu_burger" id="mobile-menu">
       <ul>
         <li><a href="index.html">À propos de moi</a></li>
@@ -53,28 +46,34 @@
     </nav>
 
     <section id="synthese">
-      <p class="titre">Shémas de synthèse des compétences</p>
+      <p class="titre">Schéma de synthèse des compétences</p>
 
-      <div class="shemaSynthese">
-        <img src="synthese\Synthese_competence.png" alt="" />
+      <div class="ShemaTableau">
+        <div class="shemaSynthese">
+          <img
+            src="Synthese_competence.png"
+            alt="Schéma de synthèse des compétences"
+          />
+        </div>
+
+        <div class="pdf-container">
+          <embed src="Tableau_competences.pdf" type="application/pdf" />
+        </div>
       </div>
+
       <div class="boutonSyntheseContainer">
-      <div class="boutonSynthese">
-        <a href="synthese/Synthese_competence.png" target="_blank">
-          Ouvrir le shéma dans un autre onglet
-        </a>
-      </div>
-      <div class="boutonSynthese">
-        <a href="synthese\Tableau de competence remplit.xlsx" download>
-          Télécharger le tableau de synthèse
-        </a>
+        <div class="boutonSynthese">
+          <a href="Tableau_competences.pdf" download>
+            Télécharger le tableau de synthèse
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer id="footer">
       <div class="footer-content">
-        <p>&copy; 2025. Tous droits réservés.</p>
+        <p>&copy; 2025 Valentin Florent. Tous droits réservés.</p>
         <div class="reseaux">
           <a href="https://github.com/Topkay20" target="_blank"
             >Github <img src="image/githubblanc.png" alt="Github"

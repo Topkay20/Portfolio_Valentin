@@ -3,33 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BTS</title>
+    <title>BTS SIO — Valentin Florent</title>
     <link rel="icon" href="image/monLogoclair.svg" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Young+Serif&family=Jacques+Francois+Shadow&display=swap" rel="stylesheet" />
   </head>
   <body>
+
     <!-- NAVBAR -->
     <header class="nav_container">
       <div class="logo_gauche">
         <img src="image/monLogoclair.svg" alt="logo" />
       </div>
-
       <nav>
         <ul class="navbar">
-          <li><a href="index.html">À propos de moi</a></li>
+          <li><a href="index.html">À propos</a></li>
           <li><a href="BTS.html">BTS SIO</a></li>
           <li><a href="veille.html">Veille</a></li>
           <li><a href="patrimoine.html">Patrimoine</a></li>
@@ -40,7 +31,7 @@
     </header>
 
     <!-- MENU BURGER -->
-    <button class="burger"></button>
+    <button class="burger" aria-label="Menu"></button>
     <nav class="menu_burger" id="mobile-menu">
       <ul>
         <li><a href="index.html">À propos de moi</a></li>
@@ -52,20 +43,18 @@
       </ul>
     </nav>
 
-    <!-- Page BTS -->
+    <!-- SECTION BTS -->
     <section id="BTS">
       <div class="PRESENTATIONetCAROUSEL">
         <div class="presentationBTS">
-          <p class="titre">
-            BTS SIO option Solution Infrastructure Systèmes et Réseaux
-          </p>
+          <p class="titre">BTS SIO — Solutions Infrastructure Systèmes et Réseaux</p>
         </div>
         <div class="carouselBTS">
           <div class="carouselBTS-inner">
             <div class="carouselBTS-item active">
-              <img src="image/LinuxWindows.png" alt="Linux et Windows" />
+              <img src="image/windows-10.jpg" alt="Windows et Linux" />
               <div class="carouseltext">
-                <p class="petitTitre">Linux et Windows</p>
+                <p class="petitTitre">Linux & Windows</p>
                 <ul>
                   <li>Administration Windows & Linux</li>
                   <li>Installation, configuration, maintenance</li>
@@ -75,85 +64,61 @@
               </div>
             </div>
             <div class="carouselBTS-item">
-              <img src="image/switch.jpg" alt="Reseau" />
+              <img src="image/switch.jpg" alt="Réseaux" />
               <div class="carouseltext">
                 <p class="petitTitre">Réseaux Informatiques</p>
                 <ul>
                   <li>Configuration de routeurs et switches</li>
                   <li>Gestion des sous-réseaux et adresses IP</li>
                   <li>Installation et configuration de VPN</li>
-                  <li>
-                    Assurer la sécurité réseau et la gestion des pare-feux
-                  </li>
+                  <li>Sécurité réseau et gestion des pare-feux</li>
                 </ul>
               </div>
             </div>
             <div class="carouselBTS-item">
-              <img
-                src="image/Programmationphoto.jpg"
-                alt="Langage de programmation"
-              />
+              <img src="image/Programmationphoto.jpg" alt="Programmation" />
               <div class="carouseltext">
                 <p class="petitTitre">Programmation</p>
                 <ul>
-                  <li>Découverte des bases : variables, boucles, conditions</li>
+                  <li>Bases : variables, boucles, conditions</li>
                   <li>Pratique avec des projets concrets</li>
-                  <li>Compréhension de la programmation orientée objet</li>
-                  <li>Utilisation de Git et GitHub pour versionner le code</li>
+                  <li>Programmation orientée objet</li>
+                  <li>Git et GitHub pour versionner le code</li>
                 </ul>
               </div>
             </div>
           </div>
-          <button class="prev" onclick="prevSlide()">
+          <button class="prev" onclick="prevSlide()" aria-label="Précédent">
             <img src="image/fleche gauche.png" alt="" />
           </button>
-          <button class="next" onclick="nextSlide()">
+          <button class="next" onclick="nextSlide()" aria-label="Suivant">
             <img src="image/fleche gauche.png" alt="" />
           </button>
         </div>
       </div>
     </section>
 
-    <!-- SECTION PROJETS (min 50vh)-->
-
+    <!-- SECTION PROJETS -->
     <section id="projets">
-      <p class="titre">3 Projets réalisés durant le BTS</p>
+      <p class="titre">3 projets réalisés durant le BTS</p>
       <div class="projetBTSContainer">
         <div class="projetBTS">
-          <img src="image/projet1.jpg" alt="projet1" />
+          <img src="image/projet1.jpg" alt="Projet 1 - Firewall Pfsense" />
           <h2>Projet 1 : Mise en place d'un Firewall sous Pfsense</h2>
-          <p>
-            Installation et configuration d'un pare-feu avec Pfsense pour une
-            petite entreprise. Configuration des règles de filtrage, VPN, NAT et
-            gestion des utilisateurs pour sécuriser le réseau interne.
-          </p>
-          <a class="enSavoirPlus" href="projets/projet1.html" target="_blank">
-            <span>En savoir plus</span>
-          </a>
+          <p>Installation et configuration d'un pare-feu avec Pfsense pour une petite entreprise. Configuration des règles de filtrage, VPN, NAT et gestion des utilisateurs.</p>
+          <a class="enSavoirPlus" href="projets/projet1.html" target="_blank"><span>En savoir plus</span></a>
         </div>
         <div class="projetBTS">
-          <img src="image/projet2.jpg" alt="projet2" />
+          <img src="image/projet2.jpg" alt="Projet 2 - NAS" />
           <h2>Projet 2 : Mise en place d'une solution de stockage NAS</h2>
-          <p>
-            Installation et configuration d'un serveur NAS (Network Attached
-            Storage) pour une petite entreprise. Choix du matériel, mise en
-            place des partages, gestion des utilisateurs et sauvegardes.
-          </p>
-          <a class="enSavoirPlus" href="projets/projet2.html" target="_blank">
-            <span>En savoir plus</span>
-          </a>
+          <p>Installation et configuration d'un serveur NAS pour une petite entreprise. Choix du matériel, mise en place des partages, gestion des utilisateurs et sauvegardes.</p>
+          <a class="enSavoirPlus" href="projets/projet2.html" target="_blank"><span>En savoir plus</span></a>
         </div>
         <div class="projetBTS">
-          <img src="image/projet3.jpg" alt="projet3" />
+          <img src="image/projet3.jpg" alt="Projet 3 - GLPI" />
           <h2>Projet 3 : Mise en place d'un serveur de ticketing avec GLPI</h2>
-          <p>
-            Installation et configuration d'un serveur de ticketing avec GLPI
-            pour une petite entreprise. Création des catégories, gestion des
-            utilisateurs et suivi des incidents.
-          </p>
-          <a class="enSavoirPlus" href="projets/projet3.html" target="_blank">
-            <span>En savoir plus</span>
-          </a>
+          <p>Installation et configuration d'un serveur de ticketing avec GLPI pour une petite entreprise. Création des catégories, gestion des utilisateurs et suivi des incidents.</p>
+          <a class="enSavoirPlus" href="projets/projet3.html" target="_blank"><span>En savoir plus</span></a>
         </div>
       </div>
     </section>
@@ -161,18 +126,13 @@
     <!-- FOOTER -->
     <footer id="footer">
       <div class="footer-content">
-        <p>&copy; 2025. Tous droits réservés.</p>
+        <p>&copy; 2025 Valentin Florent. Tous droits réservés.</p>
         <div class="reseaux">
-          <a href="https://github.com/Topkay20" target="_blank"
-            >Github <img src="image/githubblanc.png" alt="Github"
-          /></a>
-          <a
-            href="https://www.linkedin.com/in/valentin-florent-88a169282/"
-            target="_blank"
-            >Linkedin <img src="image/linkedinblanc.png" alt="Linkedin"
-          /></a>
+          <a href="https://github.com/Topkay20" target="_blank">Github <img src="image/githubblanc.png" alt="Github" /></a>
+          <a href="https://www.linkedin.com/in/valentin-florent-88a169282/" target="_blank">Linkedin <img src="image/linkedinblanc.png" alt="Linkedin" /></a>
         </div>
       </div>
     </footer>
+
   </body>
 </html>
