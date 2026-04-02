@@ -1,11 +1,360 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Projet – Vidéosurveillance USMB</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Jacques+Francois+Shadow&family=Red+Hat+Text:wght@300..700&display=swap" rel="stylesheet" />
+    <style>
+      /* FIX 7 — reset de base */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { overflow-x: hidden; }
+
+      /* HERO */
+      #hero-projet {
+        min-height: 38vh; display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        padding: 120px 5% 60px;
+        background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,.1) 0%, transparent 70%), var(--bg-primary);
+        text-align: center; position: relative;
+      }
+      #hero-projet::after {
+        content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(201,168,76,.3), transparent);
+      }
+      .tag-projet {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.25);
+        border-radius: 100px; padding: 5px 14px; font-size: 12px;
+        letter-spacing: .09em; text-transform: uppercase;
+        color: var(--gold-light); margin-bottom: 20px;
+      }
+      .tag-projet span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease infinite; }
+      .hero-titre-projet {
+        font-family: var(--font-heading); font-size: clamp(28px,4vw,52px);
+        font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 14px;
+      }
+      .hero-sous-titre { color: rgba(245,240,232,.55); font-size: 16px; max-width: 560px; }
+
+      /* INFO CARDS */
+      .info-cards {
+        display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+        padding: 0 5%; margin: -28px auto 0; position: relative; z-index: 10; max-width: 1000px;
+      }
+      .info-card {
+        background: rgba(255,255,255,.05); border: 1px solid rgba(201,168,76,.2);
+        border-radius: 12px; padding: 18px 24px; text-align: center;
+        min-width: 150px; flex: 1; max-width: 200px; backdrop-filter: blur(10px);
+      }
+      .info-card-label { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+      .info-card-value { font-family: var(--font-heading); font-size: 15px; color: var(--white); line-height: 1.4; }
+
+      /* PHOTO UNIVERSITE */
+      .univ-photo-section { max-width: 900px; margin: 60px auto 0; padding: 0 5%; }
+      .univ-photo-frame {
+        border-radius: 14px; overflow: hidden; border: 1px solid rgba(201,168,76,.2);
+        background: #0a0a0a; min-height: 280px; display: flex; align-items: center; justify-content: center;
+      }
+      .univ-photo-frame img { width: 100%; height: 360px; object-fit: cover; display: block; }
+      .photo-placeholder {
+        display: flex; flex-direction: column; align-items: center;
+        gap: 10px; padding: 60px; text-align: center; color: rgba(245,240,232,.25);
+      }
+      .photo-placeholder p { font-size: 14px; }
+      .photo-placeholder code { background: rgba(255,255,255,.07); padding: 2px 8px; border-radius: 4px; font-size: 12px; color: var(--gold-light); }
+
+      /* SECTIONS */
+      .section-projet { max-width: 900px; margin: 0 auto; padding: 70px 5%; }
+      .section-projet + .section-projet { border-top: 1px solid rgba(255,255,255,.06); }
+      .section-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+      .section-heading {
+        font-family: var(--font-heading); font-size: clamp(22px,3vw,32px);
+        font-weight: 400; color: var(--white); margin-bottom: 20px;
+        position: relative; padding-bottom: 16px;
+      }
+      .section-heading::after { content: ""; position: absolute; bottom: 0; left: 0; width: 48px; height: 2px; background: var(--gold); }
+      .section-body { color: rgba(245,240,232,.65); font-size: 15.5px; line-height: 1.85; }
+      .section-body p+p { margin-top: 14px; }
+
+      /* CRITERES */
+      .criteres-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 14px; margin-top: 24px; }
+      .critere-item {
+        background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+        border-radius: 10px; padding: 20px; display: flex; gap: 14px; align-items: flex-start;
+        transition: border-color .3s, background .3s;
+      }
+      .critere-item:hover { border-color: rgba(201,168,76,.3); background: rgba(201,168,76,.05); }
+      .critere-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(201,168,76,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 17px; }
+      .critere-text { font-size: 14px; color: rgba(245,240,232,.7); line-height: 1.6; }
+      .critere-text strong { display: block; color: var(--white); font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+
+      /* MATÉRIEL & LOGICIELS */
+      .ml-tabs { display: flex; gap: 8px; margin-bottom: 28px; margin-top: 8px; flex-wrap: wrap; }
+      .ml-tab { padding: 9px 22px; border-radius: 100px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); color: rgba(245,240,232,.55); font-size: 13px; font-weight: 600; letter-spacing: .04em; cursor: pointer; transition: all .3s; user-select: none; }
+      .ml-tab.active, .ml-tab:hover { background: rgba(201,168,76,.12); border-color: rgba(201,168,76,.3); color: var(--gold-light); }
+      .ml-panel { display: none; }
+      .ml-panel.active { display: block; }
+      .ml-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 14px; }
+      .ml-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transition: border-color .3s, transform .25s, box-shadow .3s; }
+      .ml-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+      .ml-card-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(201,168,76,.1); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+      .ml-card-name { font-family: var(--font-heading); font-size: 15px; color: var(--white); line-height: 1.3; }
+      .ml-card-detail { font-size: 13px; color: rgba(245,240,232,.55); line-height: 1.6; flex: 1; }
+      .ml-card-tag { display: inline-block; padding: 3px 10px; border-radius: 100px; background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.18); font-size: 11px; color: var(--gold-light); letter-spacing: .05em; width: fit-content; }
+      .ml-card-tag.soft { background: rgba(76,130,201,.08); border-color: rgba(76,130,201,.25); color: #8ab4f8; }
+
+      /* TIMELINE */
+      .timeline { position: relative; margin-top: 32px; padding-left: 28px; }
+      .timeline::before { content: ""; position: absolute; left: 11px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,.1)); }
+      .timeline-step { position: relative; margin-bottom: 32px; }
+      .timeline-step:last-child { margin-bottom: 0; }
+      .timeline-dot { position: absolute; left: -28px; top: 4px; width: 22px; height: 22px; border-radius: 50%; background: var(--bg-primary); border: 2px solid rgba(201,168,76,.4); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--gold-light); transition: border-color .3s, background .3s; }
+      .timeline-step:hover .timeline-dot { border-color: var(--gold); background: rgba(201,168,76,.12); }
+      .timeline-content { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: 18px 22px; transition: border-color .3s, transform .3s; }
+      .timeline-step:hover .timeline-content { border-color: rgba(201,168,76,.25); transform: translateX(4px); }
+      .timeline-num { font-size: 11px; letter-spacing: .1em; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+      .timeline-title { font-family: var(--font-heading); font-size: 17px; font-weight: 400; color: var(--white); margin-bottom: 6px; }
+      .timeline-desc { font-size: 14px; color: rgba(245,240,232,.6); line-height: 1.7; }
+
+      /* BESOINS / CONTRAINTES */
+      .bc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+      .bc-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 28px; }
+      .bc-card-title { font-family: var(--font-heading); font-size: 18px; color: var(--gold-light); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+      .bc-card-title svg { opacity: .7; }
+      .bc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+      .bc-list li { font-size: 14px; color: rgba(245,240,232,.65); line-height: 1.6; padding-left: 16px; position: relative; }
+      .bc-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: .7; }
+
+      /* SCHEMA */
+      #schema-section { background: rgba(20,20,20,.6); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); }
+      .schema-inner { max-width: 900px; margin: 0 auto; padding: 70px 5%; }
+      .schema-frame {
+        margin-top: 28px; border-radius: 12px; overflow: hidden;
+        border: 1px solid rgba(201,168,76,.2); background: #0a0a0a;
+        min-height: 300px; display: flex; align-items: center; justify-content: center;
+      }
+      .schema-frame img { width: 100%; height: auto; display: block; }
+      .schema-placeholder { text-align: center; padding: 60px; color: rgba(245,240,232,.25); display: flex; flex-direction: column; align-items: center; gap: 12px; }
+      .schema-placeholder svg { opacity: .4; }
+      .schema-placeholder p { font-size: 14px; }
+      .schema-placeholder code { background: rgba(255,255,255,.07); padding: 2px 8px; border-radius: 4px; font-size: 13px; color: var(--gold-light); }
+
+      /* BILAN */
+      .bilan-card {
+        background: rgba(201,168,76,.07); border: 1px solid rgba(201,168,76,.2);
+        border-radius: 16px; padding: 36px; margin-top: 8px; position: relative; overflow: hidden;
+      }
+      .bilan-card::before { content: "\00AB"; position: absolute; top: -20px; left: 20px; font-family: var(--font-heading); font-size: 120px; color: rgba(201,168,76,.08); line-height: 1; pointer-events: none; }
+      .bilan-card p { color: rgba(245,240,232,.75); font-size: 16px; line-height: 1.9; position: relative; }
+
+      /* RESPONSIVE */
+      @media (max-width: 700px) {
+        .info-card { min-width: 130px; max-width: 100%; }
+        .bc-grid { grid-template-columns: 1fr; }
+        .criteres-grid { grid-template-columns: 1fr; }
+        .ml-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 480px) { .ml-grid { grid-template-columns: 1fr; } }
+
+      /* SCROLL REVEAL */
+      .fade-in { opacity: 1; }
+      @supports (animation-timeline: scroll()) {
+        .fade-in { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+      }
+      @keyframes reveal-fade { to { opacity: 1; } }
+    </style>
   </head>
-  <body>
-    <h1>PROJET</h1>
+  <body><!-- FIX 1 : balise <body> ajoutée -->
+
+    <!-- HERO -->
+    <section id="hero-projet">
+      <div class="tag-projet"><span></span> Projet professionnel</div>
+      <h1 class="hero-titre-projet">D&eacute;ploiement d&apos;un syst&egrave;me de<br />vid&eacute;osurveillance &mdash; USMB</h1>
+      <p class="hero-sous-titre">Conception et mise en &oelig;uvre d&apos;une infrastructure de surveillance IP compl&egrave;te pour le campus de Jacob-Bellecombette.</p>
+    </section>
+
+    <!-- INFO CARDS -->
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">P&eacute;riode</div><div class="info-card-value">Nov. 2025 &ndash; Avr. 2026</div></div>
+      <div class="info-card"><div class="info-card-label">Lieu</div><div class="info-card-value">Jacob-Bellecombette, USMB</div></div>
+      <div class="info-card"><div class="info-card-label">Utilisateurs</div><div class="info-card-value">9 utilisateurs finaux</div></div>
+      <div class="info-card"><div class="info-card-label">Modalit&eacute;</div><div class="info-card-value">En &eacute;quipe<br/>(5 personnes)</div></div>
+    </div>
+
+    <!-- PHOTO UNIVERSITÉ --><!-- FIX 3 : div #univ-ph ajouté -->
+    <div class="univ-photo-section fade-in">
+      <div class="univ-photo-frame">
+        <img src="imageprojet1/USMBphoto.jpg" alt="Campus Jacob-Bellecombette &mdash; Universit&eacute; Savoie Mont Blanc"
+          onerror="this.style.display='none'; document.getElementById('univ-ph').style.display='flex';" />
+        <div id="univ-ph" class="photo-placeholder" style="display:none;">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" style="opacity:.35;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <p>Photo du campus universitaire</p>
+          <p>Placez votre image dans <code>imageprojet1/USMBphoto.jpg</code></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 01 CONTEXTE -->
+    <div class="section-projet fade-in">
+      <p class="section-label">01 &mdash; Contexte</p>
+      <h2 class="section-heading">Objectif du projet</h2>
+      <div class="section-body">
+        <p>Dans le cadre de sa politique de s&eacute;curit&eacute;, l&apos;Universit&eacute; Savoie Mont Blanc nous a confi&eacute; la conception et le d&eacute;ploiement d&apos;un syst&egrave;me de vid&eacute;osurveillance complet pour son campus. La solution devait &ecirc;tre performante, parfaitement adapt&eacute;e aux contraintes du site de Jacob-Bellecombette, et pleinement interop&eacute;rable avec les dispositifs de contr&ocirc;le d&apos;acc&egrave;s d&eacute;j&agrave; en place.</p>
+        <p>Notre mission couvrait l&apos;ensemble du cycle de vie du projet&nbsp;: de l&apos;analyse des besoins jusqu&apos;&agrave; la mise en production, en passant par le c&acirc;blage r&eacute;seau, la configuration des &eacute;quipements et les tests de validation.</p>
+      </div>
+    </div>
+
+    <!-- 02 COMPÉTENCES -->
+    <div class="section-projet fade-in">
+      <p class="section-label">02 &mdash; R&eacute;f&eacute;rentiel</p>
+      <h2 class="section-heading">Comp&eacute;tences</h2>
+      <p class="section-body">Ce projet s&apos;inscrit dans trois comp&eacute;tences cl&eacute;s du r&eacute;f&eacute;rentiel BTS SIO&nbsp;:</p>
+      <div class="criteres-grid">
+        <div class="critere-item">
+          <div class="critere-icon">&#128187;</div>
+          <div class="critere-text"><strong>Patrimoine informatique</strong>Assurer le recensement, la gestion et la p&eacute;rennit&eacute; des &eacute;quipements et ressources informatiques du parc.</div>
+        </div>
+        <div class="critere-item">
+          <div class="critere-icon">&#127760;</div>
+          <div class="critere-text"><strong>Mettre &agrave; disposition des utilisateurs des ressources</strong>D&eacute;ployer et mettre &agrave; disposition une infrastructure r&eacute;seau accessible &agrave; l&apos;ensemble des utilisateurs finaux.</div>
+        </div>
+        <div class="critere-item">
+          <div class="critere-icon">&#128203;</div>
+          <div class="critere-text"><strong>Travailler en mode projet</strong>Gr&acirc;ce &agrave; diff&eacute;rents outils de collaboration et de gestion, mener &agrave; bien un projet en &eacute;quipe.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 DÉROULEMENT -->
+    <div class="section-projet fade-in">
+      <p class="section-label">03 &mdash; D&eacute;roulement</p>
+      <h2 class="section-heading">Phases du projet</h2>
+      <div class="timeline">
+        <div class="timeline-step"><div class="timeline-dot">1</div><div class="timeline-content"><div class="timeline-num">&Eacute;tape 1</div><div class="timeline-title">Analyse des besoins et conception de l&apos;&eacute;tude</div><div class="timeline-desc">Recueil des exigences aupr&egrave;s des parties prenantes, &eacute;tude de l&apos;existant, d&eacute;finition du p&eacute;rim&egrave;tre fonctionnel et r&eacute;daction du cahier des charges technique.</div></div></div>
+        <div class="timeline-step"><div class="timeline-dot">2</div><div class="timeline-content"><div class="timeline-num">&Eacute;tape 2</div><div class="timeline-title">R&eacute;alisation des sch&eacute;mas r&eacute;seaux et plans d&apos;adressage</div><div class="timeline-desc">Conception de la topologie r&eacute;seau, &eacute;laboration du plan d&apos;adressage IP (VLAN, plages d&eacute;di&eacute;es), et mod&eacute;lisation de l&apos;architecture sur Cisco Packet Tracer.</div></div></div>
+        <div class="timeline-step"><div class="timeline-dot">3</div><div class="timeline-content"><div class="timeline-num">&Eacute;tape 3</div><div class="timeline-title">R&eacute;ception et pr&eacute;configuration des cam&eacute;ras</div><div class="timeline-desc">D&eacute;ballage, v&eacute;rification du mat&eacute;riel livr&eacute;, mise &agrave; jour des firmwares, et param&eacute;trage initial des cam&eacute;ras IP (adressage, flux RTSP, authentification).</div></div></div>
+        <div class="timeline-step"><div class="timeline-dot">4</div><div class="timeline-content"><div class="timeline-num">&Eacute;tape 4</div><div class="timeline-title">Tirage de la fibre et des liens r&eacute;seaux</div><div class="timeline-desc">D&eacute;ploiement des c&acirc;bles fibre optique et des liens Ethernet, pose des chemins de c&acirc;bles et raccordements dans les locaux techniques.</div></div></div>
+        <div class="timeline-step"><div class="timeline-dot">5</div><div class="timeline-content"><div class="timeline-num">&Eacute;tape 5</div><div class="timeline-title">Installation du syst&egrave;me de surveillance</div><div class="timeline-desc">Fixation et orientation des cam&eacute;ras sur site, raccordement aux switchs PoE, int&eacute;gration dans le logiciel de supervision et cr&eacute;ation des zones de d&eacute;tection.</div></div></div>
+        <div class="timeline-step"><div class="timeline-dot">6</div><div class="timeline-content"><div class="timeline-num">&Eacute;tape 6</div><div class="timeline-title">Configuration et tests de l&apos;infrastructure</div><div class="timeline-desc">Validation compl&egrave;te de la cha&icirc;ne vid&eacute;o (flux, enregistrement, r&eacute;tention 15 jours), tests de basculement, v&eacute;rification RGPD et recette finale avec le client.</div></div></div>
+      </div>
+    </div>
+
+    <!-- 04 BESOINS & CONTRAINTES -->
+    <div class="section-projet fade-in">
+      <p class="section-label">04 &mdash; Analyse</p>
+      <h2 class="section-heading">Besoins &amp; contraintes</h2>
+      <div class="bc-grid">
+        <div class="bc-card">
+          <div class="bc-card-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Besoins identifi&eacute;s
+          </div>
+          <ul class="bc-list">
+            <li>Surveillance 24h/24 des entr&eacute;es, couloirs et parkings du campus</li>
+            <li>Enregistrement continu avec r&eacute;tention minimale de 15 jours</li>
+            <li>Acc&egrave;s distant s&eacute;curis&eacute; aux flux vid&eacute;o pour l&apos;&eacute;quipe de s&eacute;curit&eacute;</li>
+            <li>Int&eacute;gration au syst&egrave;me de contr&ocirc;le d&apos;acc&egrave;s existant (UTC Aritech)</li>
+            <li>Interface d&apos;exploitation unifi&eacute;e pour 9 utilisateurs</li>
+            <li>Gestion centralis&eacute;e des alertes et &eacute;v&eacute;nements</li>
+          </ul>
+        </div>
+        <div class="bc-card">
+          <div class="bc-card-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Contraintes techniques
+          </div>
+          <ul class="bc-list">
+            <li>Conformit&eacute; RGPD et autorisation pr&eacute;fectorale obligatoire</li>
+            <li>Infrastructure r&eacute;seau existante &agrave; r&eacute;utiliser au maximum</li>
+            <li>Alimentation PoE impos&eacute;e (pas de prise secteur pr&egrave;s des cam&eacute;ras)</li>
+            <li>Travers&eacute;e de zones amiante (protocole SS4 applicable)</li>
+            <li>Disponibilit&eacute; du syst&egrave;me &ge; 99,8&nbsp;% (haute disponibilit&eacute;)</li>
+            <li>Budget mat&eacute;riel limit&eacute; &mdash; &eacute;quipements compatibles ONVIF</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 MATÉRIEL & LOGICIELS --><!-- FIX 2 : section-bloc → section-projet -->
+    <div class="section-projet fade-in">
+      <p class="section-label">05 &mdash; Inventaire</p>
+      <h2 class="section-heading">Mat&eacute;riel &amp; logiciels</h2>
+      <p class="section-body">Vue d&apos;ensemble des &eacute;quipements mat&eacute;riels et des solutions logicielles mobilis&eacute;s dans le cadre du projet.</p>
+      <div class="ml-tabs">
+        <div class="ml-tab active" onclick="switchTab('materiel', this)">&#128296; Mat&eacute;riel</div>
+        <div class="ml-tab" onclick="switchTab('logiciels', this)">&#128190; Logiciels</div>
+      </div>
+      <div id="panel-materiel" class="ml-panel active">
+        <div class="ml-grid">
+          <div class="ml-card"><div class="ml-card-icon">&#128247;</div><div class="ml-card-name">Cam&eacute;ras IP</div><div class="ml-card-detail">Cam&eacute;ras fixes et motoris&eacute;es compatibles ONVIF, aliment&eacute;es en PoE.</div><span class="ml-card-tag">Qt&eacute;&nbsp;: 50</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#128187;</div><div class="ml-card-name">Serveur RAID 5</div><div class="ml-card-detail">Serveur d&apos;enregistrement redondant int&eacute;gr&eacute; &agrave; l&apos;ATS 8600.</div><span class="ml-card-tag">Stockage</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#9889;</div><div class="ml-card-name">Onduleur</div><div class="ml-card-detail">Alimentation de secours pour la continuit&eacute; lors des coupures r&eacute;seau.</div><span class="ml-card-tag">Alimentation</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#128336;</div><div class="ml-card-name">Serveur NTP</div><div class="ml-card-detail">Synchronisation horaire centralis&eacute;e de tous les &eacute;quipements du r&eacute;seau.</div><span class="ml-card-tag">Temps</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#128268;</div><div class="ml-card-name">Switchs PoE</div><div class="ml-card-detail">Commutateurs r&eacute;seau assurant l&apos;alimentation et la connexion des cam&eacute;ras.</div><span class="ml-card-tag">R&eacute;seau</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#128262;</div><div class="ml-card-name">Fibre optique</div><div class="ml-card-detail">Liens fibre monomode entre les locaux techniques et les points de collecte.</div><span class="ml-card-tag">C&acirc;blage</span></div>
+        </div>
+      </div>
+      <div id="panel-logiciels" class="ml-panel">
+        <div class="ml-grid">
+          <div class="ml-card"><div class="ml-card-icon">&#128737;</div><div class="ml-card-name">ATS 8600</div><div class="ml-card-detail">Logiciel de supervision UTC Fire Security Aritech. Interface centrale pour alarmes et cam&eacute;ras.</div><span class="ml-card-tag soft">Supervision</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#127909;</div><div class="ml-card-name">VMS &mdash; Logiciel vid&eacute;o</div><div class="ml-card-detail">Video Management System pour la visualisation, l&apos;enregistrement et la relecture des flux.</div><span class="ml-card-tag soft">Enregistrement</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#127760;</div><div class="ml-card-name">Cisco Packet Tracer</div><div class="ml-card-detail">Simulation r&eacute;seau pour mod&eacute;liser et valider l&apos;architecture avant d&eacute;ploiement.</div><span class="ml-card-tag soft">Conception</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#128274;</div><div class="ml-card-name">Pare-feu / VLAN</div><div class="ml-card-detail">Segmentation r&eacute;seau d&eacute;di&eacute;e &agrave; la vid&eacute;osurveillance, isolation du trafic et r&egrave;gles ANSSI.</div><span class="ml-card-tag soft">S&eacute;curit&eacute;</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#128225;</div><div class="ml-card-name">Firmware cam&eacute;ras</div><div class="ml-card-detail">Mises &agrave; jour des firmwares usine avant d&eacute;ploiement pour garantir stabilit&eacute; et compatibilit&eacute; ONVIF.</div><span class="ml-card-tag soft">Mise &agrave; jour</span></div>
+          <div class="ml-card"><div class="ml-card-icon">&#128202;</div><div class="ml-card-name">Outil de supervision</div><div class="ml-card-detail">Monitoring de l&apos;infrastructure r&eacute;seau&nbsp;: disponibilit&eacute;, alertes, journaux d&apos;&eacute;v&eacute;nements.</div><span class="ml-card-tag soft">Monitoring</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 SCHÉMA --><!-- FIX 4+5 : placeholder ajouté + </div> orphelin supprimé -->
+    <section id="schema-section">
+      <div class="schema-inner fade-in">
+        <p class="section-label">06 &mdash; Architecture</p>
+        <h2 class="section-heading">Sch&eacute;ma r&eacute;seau explicatif</h2>
+        <div class="schema-frame">
+          <img src="imageprojet1/ReseauUniv.png" alt="Sch&eacute;ma r&eacute;seau du dispositif de vid&eacute;osurveillance USMB"
+            onerror="this.style.display='none'; document.getElementById('schema-ph').style.display='flex';" />
+          <div id="schema-ph" class="schema-placeholder" style="display:none;">
+            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <p>Placez votre sch&eacute;ma dans <code>imageprojet1/ReseauUniv.png</code></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 BILAN -->
+    <div class="section-projet fade-in">
+      <p class="section-label">07 &mdash; Retour d&apos;exp&eacute;rience</p>
+      <h2 class="section-heading">Bilan personnel</h2>
+      <div class="bilan-card">
+        <p>Ce projet m&apos;a permis de d&eacute;ployer une solution de vid&eacute;osurveillance compl&egrave;te, r&eacute;pondant pleinement aux exigences d&apos;un environnement universitaire r&eacute;el. Plac&eacute; au c&oelig;ur du dispositif d&egrave;s la phase d&apos;analyse, j&apos;ai assum&eacute; des responsabilit&eacute;s techniques concr&egrave;tes de bout en bout &mdash; de la conception de l&apos;architecture r&eacute;seau jusqu&apos;&agrave; la recette finale avec le client. Cette exp&eacute;rience a consid&eacute;rablement renforc&eacute; mes comp&eacute;tences en administration r&eacute;seau, en gestion de projet et en communication avec les parties prenantes, tout en me confrontant aux r&eacute;alit&eacute;s d&apos;un d&eacute;ploiement en conditions op&eacute;rationnelles.</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Valentin Florent. Tous droits r&eacute;serv&eacute;s.</p>
+        <div class="reseaux">
+          <a href="https://github.com/Topkay20" target="_blank">Github <img src="../image/githubblanc.png" alt="Github" /></a>
+          <a href="https://www.linkedin.com/in/valentin-florent-88a169282/" target="_blank">Linkedin <img src="../image/linkedinblanc.png" alt="Linkedin" /></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FIX 6 : fonction switchTab ajoutée -->
+    <script>
+      function switchTab(panel, el) {
+        document.querySelectorAll('.ml-tab').forEach(function(t){ t.classList.remove('active'); });
+        document.querySelectorAll('.ml-panel').forEach(function(p){ p.classList.remove('active'); });
+        el.classList.add('active');
+        document.getElementById('panel-' + panel).classList.add('active');
+      }
+    </script>
+
   </body>
 </html>

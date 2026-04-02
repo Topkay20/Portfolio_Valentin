@@ -57,9 +57,9 @@ function changerContenu(id) {
       parcoursImage: "image/vente.jpg",
     },
     contenu3: {
-      parcoursTitre: "Chambery (Savoie) à l'école CIFEP",
+      parcoursTitre: "Chambery (Savoie) à l'école ECORIS",
       parcoursTexte:
-        "Dans l'informatique, j'ai été en alternance pendant 2 ans dans le domaine de la vidéo protection chez Ineo Infracom, appartenant au groupe Bouygues.<br> J'étais responsable de l'installation, de la configuration et de la maintenance des systèmes de vidéosurveillance pour divers institutions publiques <br>(notamment Annecy, La Motte Servolex etc ...).<br> Cette expérience m'a permis de développer des compétences techniques en réseaux, en sécurité informatique et en gestion de projets IT.",
+        "Aujourd'hui je suis en alternance depuis 2 ans dans le domaine de la vidéo protection chez Ineo Infracom, appartenant au groupe Bouygues.<br> Je suis responsable de l'installation, de la configuration et de la maintenance des systèmes de vidéosurveillance pour divers institutions publiques <br>(notamment Annecy, La Motte Servolex etc ...).<br> Cette expérience me permet de développer des compétences techniques en réseaux, en sécurité informatique et en gestion de projets IT.",
       parcoursImage: "image/poste_info.jpg",
     },
   };
